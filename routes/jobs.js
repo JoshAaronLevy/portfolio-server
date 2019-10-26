@@ -1,31 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
-const queries = require('../queries/experiences');
+const queries = require('../queries/jobs');
 
 router.get('/', (request, response, next) => {
-  queries.list('experiences').then(experiences => {
+  queries.list('jobs').then(jobs => {
     response.json({
-      experiences
+      jobs
     });
   }).catch(next);
 });
 
 router.get('/:id', (request, response, next) => {
-  queries.read(request.params.id).then(experience => {
-    experience
+  queries.read(request.params.id).then(job => {
+    job
       ?
       response.json({
-        experience
+        job
       }) :
       response.sendStatus(404)
   }).catch(next);
 });
 
 router.post('/', (request, response, next) => {
-  queries.create(request.body).then(experience => {
+  queries.create(request.body).then(job => {
     response.status(201).json({
-      experience: experience
+      job: job
     });
   }).catch(next);
 });
@@ -37,9 +37,9 @@ router.delete('/:id', (request, response, next) => {
 });
 
 router.put('/:id', (request, response, next) => {
-  queries.update(request.params.id, request.body).then(experience => {
+  queries.update(request.params.id, request.body).then(job => {
     response.json({
-      experience: experience[0]
+      job: job[0]
     });
   }).catch(next);
 });

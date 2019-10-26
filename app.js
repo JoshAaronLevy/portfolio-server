@@ -5,14 +5,14 @@ const app = express();
 const port = parseInt(process.env.PORT || 3000);
 
 const skills = require('./routes/skills');
-const experience = require('./routes/experience');
+const jobs = require('./routes/jobs');
 const projects = require('./routes/projects');
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/skills', skills);
-app.use('/experience', experience);
+app.use('/jobs', jobs);
 app.use('/projects', projects);
 
 app.use((req, res, next) => {
