@@ -5,7 +5,7 @@ exports.seed = function (knex, Promise) {
       {
         id: 1,
         name: 'gitbuddy',
-        date: 'Oct 2019',
+        date: '2019-10-20',
         snippet: `Find a bad movie to watch. Serve data to end-users with custom API's.`,
         description: `Find a bad movie to watch. Serve data to end-users with custom API's.`,
         gifUrl: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/projects/React-Logo.png',
@@ -17,7 +17,7 @@ exports.seed = function (knex, Promise) {
       }, {
         id: 2,
         name: 'Portfolio',
-        date: 'Dec 2018',
+        date: '2018-11-01',
         snippet: `Full CRUD Web Developer portfolio. Built with Vue.js and PostgreSQL.`,
         description: `Full CRUD Web Developer portfolio. Built with Vue.js and PostgreSQL.`,
         gifUrl: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/projects/React-Logo.png',
@@ -29,7 +29,7 @@ exports.seed = function (knex, Promise) {
       }, {
         id: 3,
         name: 'Coding Roadmap',
-        date: 'Oct 2018',
+        date: '2018-10-20',
         snippet: `A blog about all things web development.`,
         description: `A blog about all things web development.`,
         gifUrl: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/projects/React-Logo.png',
@@ -41,7 +41,7 @@ exports.seed = function (knex, Promise) {
       }, {
         id: 4,
         name: 'PostureMom',
-        date: 'Sep 2018',
+        date: '2018-09-15',
         snippet: `Capstone project. Desktop app created with Vue.js, Electron, Google TensorFlow.js Machine Learning, and Google Cloud Functions.`,
         description: `Capstone project. Desktop app created with Vue.js, Electron, Google TensorFlow.js Machine Learning, and Google Cloud Functions.`,
         gifUrl: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/projects/React-Logo.png',
@@ -53,7 +53,7 @@ exports.seed = function (knex, Promise) {
       }, {
         id: 5,
         name: 'Bad Movie Night',
-        date: 'Jul 2018',
+        date: '2018-07-12',
         snippet: `Find a bad movie to watch. Serve data to end-users with custom API's.`,
         description: `Find a bad movie to watch. Serve data to end-users with custom API's.`,
         gifUrl: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/projects/React-Logo.png',

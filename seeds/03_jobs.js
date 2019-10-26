@@ -7,7 +7,7 @@ exports.seed = function (knex, Promise) {
           company: 'Accenture',
           title: 'Sr. Tech Delivery Architect',
           startDate: '2018-11-21',
-          endDate: '',
+          endDate: null,
           description: {}
         }
       ]);
