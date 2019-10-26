@@ -1,47 +1,80 @@
 const express = require('express');
-const router = express.Router();
+const knex = require('../db-connection');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express();
 
-const queries = require('../queries/skills');
+const router = module.exports = require('express').Router();
 
-router.get('/', (request, response, next) => {
-  queries.list('skills').then(skills => {
-    response.json({
-      skills
-    });
-  }).catch(next);
-});
+app.use(bodyParser.json());
+app.use(cors());
 
-router.get('/:id', (request, response, next) => {
-  queries.read(request.params.id).then(skill => {
-    skill
-      ?
-      response.json({
-        skill
+router.get('/', getAll)
+router.get('/:slug', getOne)
+router.post('/', create)
+router.put('/:id', update)
+router.delete('/:id', remove)
+
+function getAll(req, res, next) {
+  knex('skills')
+    .select('*')
+    .then(skills => res.status(200).send({
+      skills: skills
+    }))
+    .catch(next)
+}
+
+function getOne(req, res, next) {
+  knex('skills')
+    .select('*')
+    .limit(1)
+    .where({
+      slug: req.params.slug
+    })
+    .then(([skill]) => {
+      if (!skill) return res.status(404).send({
+        message: 'Item not found.'
+      })
+      res.status(200).send({
+        skill: skill
+      })
+    })
+    .catch(next)
+}
+
+function create(req, res, next) {
+  knex('skills')
+    .insert(req.body)
+    .then(() => res.status(201).json({
+      skill: req.body
+    }))
+    .catch(next)
+}
+
+function update(req, res, next) {
+  knex('skills')
+    .where({
+      id: req.params.id
+    })
+    .update(req.body)
+    .then(count => count >= 1 ?
+      res.status(200).json({
+        skill: req.body
       }) :
-      response.sendStatus(404)
-  }).catch(next);
-});
+      res.status(410).json())
+    .catch(next)
+}
 
-router.post('/', (request, response, next) => {
-  queries.create(request.body).then(skill => {
-    response.status(201).json({
-      skill: skill
-    });
-  }).catch(next);
-});
-
-router.delete('/:id', (request, response, next) => {
-  queries.delete(request.params.id).then(() => {
-    response.sendStatus(204);
-  }).catch(next);
-});
-
-router.put('/:id', (request, response, next) => {
-  queries.update(request.params.id, request.body).then(skill => {
-    response.json({
-      skill: skill[0]
-    });
-  }).catch(next);
-});
-
-module.exports = router;
+function remove(req, res, next) {
+  knex('skills')
+    .where({
+      id: req.params.id
+    })
+    .delete()
+    .then(count => count >= 1 ?
+      res.status(204).json() :
+      res.status(404).json({
+        message: 'Unable to delete skill!'
+      }))
+    .catch(next)
+}
