@@ -1,13 +1,13 @@
-
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
+exports.seed = function (knex, Promise) {
+  return knex('skills').del()
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('skills').insert([
+        {
+          id: 1,
+          name: 'Angular 6+',
+          img: 'https://s3-us-west-2.amazonaws.com/joshlevyportfolio/skills/Angular-Logo.png',
+          category: 'Front-End'
+        }
       ]);
-    });
+    }).then(() => knex.raw(`ALTER SEQUENCE skills_id_seq RESTART WITH 2;`));
 };
