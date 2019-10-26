@@ -8,7 +8,7 @@ exports.seed = function (knex, Promise) {
           title: 'Sr. Tech Delivery Architect',
           startDate: '2018-11-21',
           endDate: '',
-          description: ''
+          description: {}
         }
       ]);
     }).then(() => knex.raw(`ALTER SEQUENCE jobs_id_seq RESTART WITH 2;`));

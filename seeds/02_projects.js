@@ -12,7 +12,7 @@ exports.seed = function (knex, Promise) {
         youtubeUrl: null,
         deployedUrl: 'https://bad-movie-night.firebaseapp.com',
         githubUrl: 'https://github.com/joshaaronlevy/bad-movie-night',
-        stack: '',
+        stack: {},
         codeSnippetUrl: ''
       }, {
         id: 2,
@@ -24,7 +24,7 @@ exports.seed = function (knex, Promise) {
         youtubeUrl: null,
         deployedUrl: 'https://joshlevy.tech/',
         githubUrl: 'https://github.com/JoshAaronLevy/portfolio',
-        stack: '',
+        stack: {},
         codeSnippetUrl: ''
       }, {
         id: 3,
@@ -36,7 +36,7 @@ exports.seed = function (knex, Promise) {
         youtubeUrl: null,
         deployedUrl: 'https://codingroadmap.com/',
         githubUrl: 'https://github.com/JoshAaronLevy/coding-roadmap',
-        stack: '',
+        stack: {},
         codeSnippetUrl: ''
       }, {
         id: 4,
@@ -48,7 +48,7 @@ exports.seed = function (knex, Promise) {
         youtubeUrl: `https://www.youtube.com/watch?v=M1_SJuy5KPI&feature=youtu.be`,
         deployedUrl: null,
         githubUrl: 'https://github.com/JoshAaronLevy/posturemom-app/',
-        stack: '',
+        stack: {},
         codeSnippetUrl: ''
       }, {
         id: 5,
